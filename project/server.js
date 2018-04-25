@@ -7,7 +7,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 const mongoose = require('mongoose');
-  mongoose.connect('mongodb://127.0.0.1:27017/contact');
+  mongoose.connect('mongodb://localhost/AskItBasket');
   var db = mongoose.connection;
 
   db.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -15,6 +15,8 @@ const mongoose = require('mongoose');
 var app = express();
 
 var port = 3000;
+
+var db = require('./models')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -44,14 +46,9 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.get('/somedata', (req, res) => {
-    console.log(req);
-    response.send('here is your info');
-});
-
 
 app.listen(port, ()=> {
-  console.log(`Im listening`);
+  console.log(`Im listening on ${port}`);
 });
 
 module.exports = app;
