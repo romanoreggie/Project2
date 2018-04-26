@@ -7,7 +7,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 const mongoose = require('mongoose');
-  mongoose.connect('mongodb://localhost/AskItBasket');
+  mongoose.connect('mongodb://localhost/Post');
   var db = mongoose.connection;
 
   db.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -45,6 +45,27 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.get('/', function (req, res) {
+  res.sendFile('views/index.ejs' , { root : __dirname});
+});
+
+app.get('/api/post', function (req, res) {
+  // send all books as JSON response
+  console.log('post index');
+  res.json(Post);
+});
+
+// app.get('/api/posts', function (req, res) {
+//   // send all books as JSON response
+//   db.Book.find(function(err, posts){
+//     if (err) {
+//       console.log("index error: " + err);
+//       res.sendStatus(500);
+//     }
+//     res.json(posts);
+//   });
+// });
 
 
 app.listen(port, ()=> {
