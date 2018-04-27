@@ -1,11 +1,20 @@
 console.log("Sanity Check: JS is working!");
 
+var $postList;
 let pastPost = [];
 
 
-// $(document).ready(function){
-//
-// }
+$(document).ready(function(){
+
+  $postList = $('#past_post');
+    $.ajax({
+      method: 'GET',
+      url: '/post',
+      success: handleSuccess,
+      error: handleError
+    });
+
+});
 
 
 // document.getElementById("postButton").addEventListener("click", function(e) {
