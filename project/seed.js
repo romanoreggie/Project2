@@ -25,6 +25,8 @@ var Posts = [
 // }, 5000);
 
 // remove all records that match {} -- which means remove ALL records
+
+
 db.Post.remove({}, function(err, posts){
   if(err) {
     console.log('Error occurred in remove', err);

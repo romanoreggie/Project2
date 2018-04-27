@@ -55,41 +55,19 @@ app.get('/', function(req, res) {
   });
 });
 
-// app.get('/Posts', function(req, res) {
-//   db.Post.find().populate('name')
-//     .exec(function(err, posts) {
-//       if (err) { return console.log("index error: " + err); }
-//       res.json(Posts);
-//     });
-//   });
+app.get('/', function(req, res) {
+  db.Post.find(function(err, data) {
+    if (err) {
+      console.log("error with server" + err);
+      res.sendStatus(500);
+    }
+    res.json(data);
+    // res.render('index', {
+    //   data: data,
+    // });
+  });
+});
 
-// app.get('/api', function api_index (req, res){
-//   res.json({
-//     message: "Welcome to Ask It!",
-//
-//     // endpoints: [
-//     //   {method: "GET", path: "/api", description: "Describes available endpoints"}
-//     // ]
-//   });
-// });
-
-// app.get('/api/post', function (req, res) {
-//   db.Post.find({}, function(err, post){
-//   res.json(Post);
-// });
-// console.log('post index');
-// });
-
-// app.get('/api/posts', function (req, res) {
-//   // send all books as JSON response
-//   db.Post.find(function(err, posts){
-//     if (err) {
-//       console.log("index error: " + err);
-//       res.sendStatus(500);
-//     }
-//     res.json(posts);
-//   });
-// });
 
 // let viewData = () => {
 // // db.Post.find();
