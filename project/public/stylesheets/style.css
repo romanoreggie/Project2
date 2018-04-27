@@ -43,6 +43,19 @@ textarea {
   outline: none;
 }
 
+#userName {
+  box-sizing: border-box;
+  border: 5px solid #333333;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: rgba(217, 217, 217, .7);
+  color: #333333;
+  width: 20%;
+  height: 35px;
+  text-align: left;
+  margin: auto;
+  /* outline: none; */
+}
 
 .black-background {
   background-color: #333333;

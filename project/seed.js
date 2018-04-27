@@ -9,9 +9,18 @@ var Posts = [
     name: "Reggie R.",
     post: "Test, test",
   },
+
   {
     name: "Scott",
     post: "no idea wtf Im doing",
+  },
+  {
+    name: "No idea",
+    post: "Trying here..."
+  },
+  {
+    name: "Uhh",
+    post: "okay then.."
   }
 ];
   // Posts.forEach((post) => {

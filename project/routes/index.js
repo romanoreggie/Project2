@@ -16,7 +16,14 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.post('/posts', function(req, res,) {
+router.post('/post', function(req, res,) {
+  db.Post.create(req.body, function(err) {
+    if(err){
+      res.send(err);
+    } else {
+      res.redirect('/');
+    };
+  });
 });
 
 

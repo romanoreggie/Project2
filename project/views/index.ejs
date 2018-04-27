@@ -58,11 +58,16 @@
     <div class="container text-center">
       <div class="page-header">-Ask it Basket-</div>
     </div>
-    <div class="container">
-<form action="POST">
+  <!-- <div class="row"> -->
+    <!-- <div class="col"> -->
+    <form action="/post" method="post">
   <div class="form-group">
     <textarea class="postControl" rows="5" id="areaPost" placeholder="Your post..." minlength="10" required="true"></textarea>
   </div>
+  <div class="container">
+    <input id="userName" type="text" class="form-control" placeholder="First name">
+  </div>
+</br>
   <input id="postButton" type="submit" class="btn btn-primary black-background white" value="Post">
       </form>
     </div>
@@ -72,13 +77,14 @@
   <!-- Previous posts section -->
   <div id="past_post">
     <form>
+      <!-- <% for (var i = 0; i < posts.length; i++) { %> -->
       <section>
         <div class="row">
           <div class="col-sm-3"></div>
           <div class="col-sm-6">
             <blockquote class="blockquote text-center">
-              <p id="text1" class="mb-0"><%= data[1].post %></p>
-              <footer class="blockquote-footer">
+              <p id="text1" class="mb-0"><%= data[0].post %></p>
+              <footer class="blockquote-footer"><%= data[0].name %>
             </blockquote>
           </div>
           <div class="col-sm-3"></div>
@@ -89,8 +95,20 @@
           <div class="col-sm-3"></div>
           <div class="col-sm-6">
             <blockquote class="blockquote text-center">
-              <p id="text2" class="mb-0"></p>
-              <footer class="blockquote-footer">
+              <p id="text2" class="mb-0"><%= data[1].post %> </p>
+              <footer class="blockquote-footer"><%= data[1].name %>
+            </blockquote>
+          </div>
+          <div class="col-sm-3"></div>
+        </div>
+      </section>
+       <section>
+        <div class="row">
+          <div class="col-sm-3"></div>
+          <div class="col-sm-6">
+            <blockquote class="blockquote text-center">
+              <p id="text3" class="mb-0"><%= data[2].post %></p>
+              <footer class="blockquote-footer"><%= data[2].name %>
             </blockquote>
           </div>
           <div class="col-sm-3"></div>
@@ -101,25 +119,14 @@
           <div class="col-sm-3"></div>
           <div class="col-sm-6">
             <blockquote class="blockquote text-center">
-              <p id="text3" class="mb-0"></p>
-              <footer class="blockquote-footer">
+              <p id="text4" class="mb-0"><%= data[3].post %></p>
+              <footer class="blockquote-footer"><%= data[3].name %>
             </blockquote>
           </div>
           <div class="col-sm-3"></div>
         </div>
       </section>
-      <section>
-        <div class="row">
-          <div class="col-sm-3"></div>
-          <div class="col-sm-6">
-            <blockquote class="blockquote text-center">
-              <p id="text4" class="mb-0"></p>
-              <footer class="blockquote-footer">
-            </blockquote>
-          </div>
-          <div class="col-sm-3"></div>
-        </div>
-      </section>
+      <!-- <% } %> -->
     </form>
   </div>
 
