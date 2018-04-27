@@ -1,6 +1,11 @@
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/Post");
+mongoose.connect("mongodb://localhost/Askit");
+var db = mongoose.connection;
 
-module.exports.Post = require("./post.js");
-module.exports.User = require("./user.js");
-module.exports.Comment = require("./comment.js");
+var Post = require("./post.js");
+var User = require("./user.js");
+var Comment = require("./comment.js")
+
+module.exports.Post = Post;
+module.exports.User = User;
+module.exports.Comment = Comment;

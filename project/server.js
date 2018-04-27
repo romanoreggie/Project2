@@ -2,15 +2,16 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var logger = require('morgan');
+var bodyParser = require('body-parser');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 const mongoose = require('mongoose');
-  mongoose.connect('mongodb://localhost/Post');
-  var db = mongoose.connection;
+mongoose.connect('mongodb://localhost/Askit');
+var db = mongoose.connection;
 
-  db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 var app = express();
 
@@ -24,7 +25,9 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({
+  extended: false
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
@@ -46,19 +49,40 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.get('/', function (req, res) {
-  res.sendFile('views/index.ejs' , { root : __dirname});
+app.get('/', function(req, res) {
+  res.sendFile('views/index.ejs', {
+    root: __dirname
+  });
 });
 
-app.get('/api/post', function (req, res) {
-  // send all books as JSON response
-  console.log('post index');
-  res.json(Post);
-});
+// app.get('/Posts', function(req, res) {
+//   db.Post.find().populate('name')
+//     .exec(function(err, posts) {
+//       if (err) { return console.log("index error: " + err); }
+//       res.json(Posts);
+//     });
+//   });
+
+// app.get('/api', function api_index (req, res){
+//   res.json({
+//     message: "Welcome to Ask It!",
+//
+//     // endpoints: [
+//     //   {method: "GET", path: "/api", description: "Describes available endpoints"}
+//     // ]
+//   });
+// });
+
+// app.get('/api/post', function (req, res) {
+//   db.Post.find({}, function(err, post){
+//   res.json(Post);
+// });
+// console.log('post index');
+// });
 
 // app.get('/api/posts', function (req, res) {
 //   // send all books as JSON response
-//   db.Book.find(function(err, posts){
+//   db.Post.find(function(err, posts){
 //     if (err) {
 //       console.log("index error: " + err);
 //       res.sendStatus(500);
@@ -67,8 +91,13 @@ app.get('/api/post', function (req, res) {
 //   });
 // });
 
+// let viewData = () => {
+// // db.Post.find();
+// console.log(db.Post.find());}
+//
+// viewData();
 
-app.listen(port, ()=> {
+app.listen(port, () => {
   console.log(`Im listening on ${port}`);
 });
 
