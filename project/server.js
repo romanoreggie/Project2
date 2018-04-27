@@ -55,18 +55,20 @@ app.get('/', function(req, res) {
   });
 });
 
-app.get('/', function(req, res) {
-  db.Post.find(function(err, data) {
-    if (err) {
-      console.log("error with server" + err);
-      res.sendStatus(500);
-    }
-    res.json(data);
-    // res.render('index', {
-    //   data: data,
-    // });
-  });
-});
+
+
+// app.get('/', function(req, res) {
+  // db.Post.find(function(err, data) {
+  //   if (err) {
+  //     console.log("error with server" + err);
+  //     res.sendStatus(500);
+  //   }
+  //   res.json(data);
+  //   // res.render('index', {
+  //   //   data: data,
+  //   // });
+  // });
+// });
 
 
 // let viewData = () => {
