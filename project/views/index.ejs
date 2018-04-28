@@ -20,7 +20,7 @@
 <body>
 
   <!--Navigation bar section -->
-  <div id="nav_header">
+  <div class="nav_header">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="#">Ask it</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,16 +56,16 @@
   <!--Sunset background with title and post form  -->
   <div id="sunset">
     <div class="container text-center">
-      <div class="page-header">-Ask it Basket-</div>
+      <div class="page-header">-Ask it-</div>
     </div>
   <!-- <div class="row"> -->
     <!-- <div class="col"> -->
     <form action="/post" method="post">
   <div class="form-group">
-    <textarea class="postControl" rows="5" id="areaPost" placeholder="Your post..." minlength="10" required="true"></textarea>
+    <textarea class="postControl" rows="5" id="areaPost" placeholder="Your post..." minlength="10" required="true" name="post"></textarea>
   </div>
   <div class="container">
-    <input id="userName" type="text" class="form-control" placeholder="First name">
+    <input id="userName" type="text" class="form-control" placeholder="First name" name="name">
   </div>
 </br>
   <input id="postButton" type="submit" class="btn btn-primary black-background white" value="Post">
@@ -75,60 +75,100 @@
   <br>
 
   <!-- Previous posts section -->
-  <div id="past_post">
-    <form>
 
+
+     <form>
       <section>
-        <div class="row">
-          <div class="col-sm-3"></div>
-          <div class="col-sm-6">
-            <blockquote class="blockquote text-center">
-              <p id="text1" class="mb-0"><%= data[0].post %></p>
-              <footer class="blockquote-footer"><%= data[0].name %>
-            </blockquote>
+        <div id="postBox" class="jumbotron">
+          <div class="container">
+              <p class="lead"><%= data[data.length-1].post %></p>
+              <footer class="blockquote-footer"><%= data[data.length-1].name %></footer>
+            </br>
+              <form action="/comment" method="post">
+                <blockquote class="blockquote text-right">
+                  <div class="container">
+                    <textarea id="commentBox" rows="5" type="text" class="form-control" placeholder="Your comment..." name="comment"></textarea>
+                  </div>
+                  <p class="mb-0" id="commentButton" onclick="commentForm()"><button type="submit" class="btn btn-secondary btn-sm">Add Comment</button></p>
+                </blockquote>
+              </form>
+              </div>
           </div>
-          <div class="col-sm-3"></div>
-        </div>
+      </section><section>
+        <div id="postBox" class="jumbotron">
+          <div class="container">
+              <p class="lead"><%= data[data.length-2].post %></p>
+              <footer class="blockquote-footer"><%= data[data.length-2].name %></footer>
+            </br>
+              <form action="/comment" method="post">
+                <blockquote class="blockquote text-right">
+                  <div class="container">
+                    <textarea id="commentBox" rows="5" type="text" class="form-control" placeholder="Your comment..." name="comment"></textarea>
+                  </div>
+                  <p class="mb-0" id="commentButton" onclick="commentForm()"><button type="submit" class="btn btn-secondary btn-sm">Add Comment</button></p>
+                </blockquote>
+              </form>
+              </div>
+          </div>
+      </section><section>
+        <div id="postBox" class="jumbotron">
+          <div class="container">
+              <p class="lead"><%= data[data.length-3].post %></p>
+              <footer class="blockquote-footer"><%= data[data.length-3].name %></footer>
+            </br>
+              <form action="/comment" method="post">
+                <blockquote class="blockquote text-right">
+                  <div class="container">
+                    <textarea id="commentBox" rows="5" type="text" class="form-control" placeholder="Your comment..." name="comment"></textarea>
+                  </div>
+                  <p class="mb-0" id="commentButton" onclick="commentForm()"><button type="submit" class="btn btn-secondary btn-sm">Add Comment</button></p>
+                </blockquote>
+              </form>
+              </div>
+          </div>
       </section>
       <section>
-        <div class="row">
-          <div class="col-sm-3"></div>
-          <div class="col-sm-6">
-            <blockquote class="blockquote text-center">
-              <p id="text2" class="mb-0"><%= data[1].post %> </p>
-              <footer class="blockquote-footer"><%= data[1].name %>
-            </blockquote>
+        <div id="postBox" class="jumbotron">
+          <div class="container">
+              <p class="lead"><%= data[data.length-4].post %></p>
+              <footer class="blockquote-footer"><%= data[data.length-4].name %></footer>
+            </br>
+              <form action="/comment" method="post">
+                <blockquote class="blockquote text-right">
+                  <div class="container">
+                    <textarea id="commentBox" rows="5" type="text" class="form-control" placeholder="Your comment..." name="comment"></textarea>
+                  </div>
+                  <p class="mb-0" id="commentButton" onclick="commentForm()"><button type="submit" class="btn btn-secondary btn-sm">Add Comment</button></p>
+                </blockquote>
+              </form>
+              </div>
           </div>
-          <div class="col-sm-3"></div>
-        </div>
-      </section>
-       <section>
-        <div class="row">
-          <div class="col-sm-3"></div>
-          <div class="col-sm-6">
-            <blockquote class="blockquote text-center">
-              <p id="text3" class="mb-0"><%= data[2].post %></p>
-              <footer class="blockquote-footer"><%= data[2].name %>
-            </blockquote>
-          </div>
-          <div class="col-sm-3"></div>
-        </div>
       </section>
       <section>
-        <div class="row">
-          <div class="col-sm-3"></div>
-          <div class="col-sm-6">
-            <blockquote class="blockquote text-center">
-              <p id="text4" class="mb-0"><%= data[3].post %></p>
-              <footer class="blockquote-footer"><%= data[3].name %>
-            </blockquote>
+        <div id="postBox" class="jumbotron">
+          <div class="container">
+              <p class="lead"><%= data[data.length-5].post %></p>
+              <footer class="blockquote-footer"><%= data[data.length-5].name %></footer>
+            </br>
+              <form action="/comment" method="post">
+                <blockquote class="blockquote text-right">
+                  <div class="container">
+                    <textarea id="commentBox" rows="5" type="text" class="form-control" placeholder="Your comment..." name="comment"></textarea>
+                  </div>
+                  <p class="mb-0" id="commentButton" onclick="commentForm()"><button type="submit" class="btn btn-secondary btn-sm">Add Comment</button></p>
+                </blockquote>
+              </form>
+              </div>
           </div>
-          <div class="col-sm-3"></div>
-        </div>
       </section>
-      
+
     </form>
   </div>
+
+</br>
+</br>
+
+
 
   <!--Footer  -->
   <footer class="footer">

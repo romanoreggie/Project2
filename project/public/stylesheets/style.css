@@ -15,7 +15,8 @@ div.page-header {
   text-align: center;
 }
 
-#nav_header {
+
+.nav_header {
   position: sticky;
 }
 
@@ -30,7 +31,7 @@ body {
   text-align: center;
 }
 
-textarea {
+#areaPost {
   box-sizing: border-box;
   border: 5px solid #333333;
   border-radius: 4px;
@@ -58,6 +59,35 @@ textarea {
   /* outline: none; */
 }
 
+#commentBox {
+  /* box-sizing: border-box;
+  border: 5px solid #333333;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: rgba(217, 217, 217, .7); */
+  background-color: rgba(217, 217, 217, .7);
+  width: 40%;
+  height: 35px;
+  text-align: left;
+  margin: auto;
+  outline: none;
+}
+
+#commentBox:focus {
+  width: 50%;
+  height: 70px;
+}
+
+#postBox {
+  background-color: rgba(253, 249, 233, .90);
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 50%;
+  text-align: center;
+  color: #333333;
+}
+
 .black-background {
   background-color: #333333;
   border-color: rgba(158, 114, 89, .95);
@@ -79,8 +109,13 @@ section {
   text-align: center;
   color: rgba(253, 249, 233, .90);;
 }
+
+#commentButton {
+  margin-right: 30%;
+}
+
 .footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   height: 35px;

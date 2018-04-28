@@ -4,17 +4,17 @@ var $postList;
 let pastPost = [];
 
 
-$(document).ready(function(){
-
-  $postList = $('#past_post');
-    $.ajax({
-      method: 'GET',
-      url: '/post',
-      success: handleSuccess,
-      error: handleError
-    });
-
-});
+// $(document).ready(function(){
+//
+//   $postList = $('#past_post');
+//     $.ajax({
+//       method: 'GET',
+//       url: '/post',
+//       success: handleSuccess,
+//       error: handleError
+//     });
+//
+// });
 
 
 // document.getElementById("postButton").addEventListener("click", function(e) {
