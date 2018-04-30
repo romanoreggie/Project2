@@ -26,5 +26,16 @@ router.post('/post', function(req, res,) {
   });
 });
 
+router.delete('/post/:id', (req,res) => {
+  db.Post.findByIdAndRemove(req.params.id, (err) => {
+    if(err){
+      res.redirect('/');
+    }else{
+      res.redirect('/');
+    }
+  });
+});
+
+
 
 module.exports = router;

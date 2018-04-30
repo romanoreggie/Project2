@@ -67,7 +67,7 @@ body {
   background-color: rgba(217, 217, 217, .7); */
   background-color: rgba(217, 217, 217, .7);
   width: 40%;
-  height: 35px;
+  height: 10px;
   text-align: left;
   margin: auto;
   outline: none;
@@ -75,7 +75,7 @@ body {
 
 #commentBox:focus {
   width: 50%;
-  height: 70px;
+  height: 10px;
 }
 
 #postBox {
@@ -86,6 +86,7 @@ body {
   width: 50%;
   text-align: center;
   color: #333333;
+  font-size: 22px;
 }
 
 .black-background {

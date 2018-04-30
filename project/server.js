@@ -3,6 +3,8 @@ var express = require('express');
 var path = require('path');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
+var express = require('express');
+var router = express.Router();
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -55,20 +57,11 @@ app.get('/', function(req, res) {
   });
 });
 
-
-
-// app.get('/', function(req, res) {
-  // db.Post.find(function(err, data) {
-  //   if (err) {
-  //     console.log("error with server" + err);
-  //     res.sendStatus(500);
-  //   }
-  //   res.json(data);
-  //   // res.render('index', {
-  //   //   data: data,
-  //   // });
-  // });
-// });
+app.get('/login', function(req, res) {
+  res.sendFile('views/login.ejs', {
+    root: __dirname
+});
+});
 
 
 // let viewData = () => {

@@ -16,11 +16,15 @@ var Posts = [
   },
   {
     name: "No idea",
-    post: "Trying here..."
+    post: "Trying here...",
   },
   {
     name: "Uhh",
-    post: "okay then.."
+    post: "okay then..",
+  },
+  {
+    name: "Chris",
+    post: "What am I doing here?",
   }
 ];
   // Posts.forEach((post) => {

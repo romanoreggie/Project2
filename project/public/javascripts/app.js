@@ -3,6 +3,28 @@ console.log("Sanity Check: JS is working!");
 var $postList;
 let pastPost = [];
 
+let removePost = function() {
+  $('#post1').text('');
+  $('#name1').text('');
+};
+let removePost2 = function() {
+  $('#post2').text('');
+  $('#name2').text('');
+};
+let removePost3 = function() {
+  $('#post3').text('');
+  $('#name3').text('');
+};
+let removePost4 = function() {
+  $('#post4').text('');
+  $('#name4').text('');
+};
+let removePost5 = function() {
+  $('#post5').text('');
+  $('#name5').text('');
+};
+
+
 
 // $(document).ready(function(){
 //
