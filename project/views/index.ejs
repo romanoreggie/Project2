@@ -53,9 +53,9 @@
       <form class="form-inline">
         <div class="form-group">
           <input type="text" class="form-control" id="validationCustom01" placeholder="Email" required>
-            <div class="valid-feedback">
-              Looks Good!
-              </div>
+          <div class="valid-feedback">
+            Looks Good!
+          </div>
           <input type="password" id="inputPassword6" class="form-control mx-sm-3" aria-describedby="passwordHelpInline" placeholder="Password">
         </div>
       </form>
@@ -67,131 +67,151 @@
     <div class="container text-center">
       <div class="page-header">-Ask it-</div>
     </div>
-  <!-- <div class="row"> -->
+    <!-- <div class="row"> -->
     <!-- <div class="col"> -->
     <form action="/post" method="post">
-  <div class="form-group">
-    <textarea class="postControl" rows="5" id="areaPost" placeholder="Your post..." minlength="10" required="true" name="post"></textarea>
+      <div class="form-group">
+        <textarea class="postControl" rows="5" id="areaPost" placeholder="Your post..." minlength="10" required="true" name="post"></textarea>
+      </div>
+      <div class="container">
+        <input id="userName" type="text" class="form-control" placeholder="First name" name="name">
+      </div>
+      </br>
+      <input id="postButton" type="submit" class="btn btn-primary black-background white" value="Post">
+    </form>
   </div>
-  <div class="container">
-    <input id="userName" type="text" class="form-control" placeholder="First name" name="name">
-  </div>
-</br>
-  <input id="postButton" type="submit" class="btn btn-primary black-background white" value="Post">
-      </form>
-    </div>
   </div>
   <br>
 
 
-     <form>
-      <section>
-        <div id="postBox" class="jumbotron">
-          <div class="container">
-              <p id="post1"><%= data[data.length-1].post %></p>
-              <footer id="name1" class="blockquote-footer"><%= data[data.length-1].name %></footer>
+  <form>
+    <section>
+      <div id="postBox" class="jumbotron">
+        <div class="container">
+          <p id="post1">
+            <%= data[data.length-1].post %>
+          </p>
+          <footer id="name1" class="blockquote-footer">
+            <%= data[data.length-1].name %>
+          </footer>
+          </br>
+          <form action="/comment" method="post">
+            <blockquote class="blockquote text-right">
+              <div class="container">
+                <textarea id="commentBox1" rows="5" type="text" class="form-control" placeholder="Your comment..." name="comment"></textarea>
+              </div>
+              <p class="mb-0" id="commentButton" onclick="commentForm()"><button type="submit" class="btn btn-secondary btn-sm">Add Comment</button></p>
+            </blockquote>
             </br>
-              <form action="/comment" method="post">
-                <blockquote class="blockquote text-right">
-                  <div class="container">
-                    <textarea id="commentBox1" rows="5" type="text" class="form-control" placeholder="Your comment..." name="comment"></textarea>
-                  </div>
-                  <p class="mb-0" id="commentButton" onclick="commentForm()"><button type="submit" class="btn btn-secondary btn-sm">Add Comment</button></p>
-                </blockquote>
-              </br>
-              <form id='delete' action='/post/<%= data._id %>?_method=Delete' method= 'POST'>
-                <button type="button" class="btn btn-danger" onclick="removePost()">Delete Post</button>
-              </form>
+            <form action="/post/<%= data._id %>?_method=DELETE" method="DELETE">
+              <button type="button" class="btn btn-danger" onclick="removePost()">Delete Post</button>
             </form>
+          </form>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div id="postBox" class="jumbotron">
+        <div class="container">
+          <p id="post2">
+            <%= data[data.length-2].post %>
+          </p>
+          <footer id="name2" class="blockquote-footer">
+            <%= data[data.length-2].name %>
+          </footer>
+          </br>
+          <form action="/comment" method="post">
+            <blockquote class="blockquote text-right">
+              <div class="container">
+                <textarea id="commentBox2" rows="5" type="text" class="form-control" placeholder="Your comment..." name="comment"></textarea>
               </div>
-          </div>
-      </section>
-      <section>
-        <div id="postBox" class="jumbotron">
-          <div class="container">
-              <p id="post2"><%= data[data.length-2].post %></p>
-              <footer id="name2" class="blockquote-footer"><%= data[data.length-2].name %></footer>
+              <p class="mb-0" id="commentButton" onclick="commentForm()"><button type="submit" class="btn btn-secondary btn-sm">Add Comment</button></p>
+            </blockquote>
             </br>
-              <form action="/comment" method="post">
-                <blockquote class="blockquote text-right">
-                  <div class="container">
-                    <textarea id="commentBox2" rows="5" type="text" class="form-control" placeholder="Your comment..." name="comment"></textarea>
-                  </div>
-                  <p class="mb-0" id="commentButton" onclick="commentForm()"><button type="submit" class="btn btn-secondary btn-sm">Add Comment</button></p>
-                </blockquote>
-              </br>
-                <button type="button" class="btn btn-danger" onclick="removePost2()">Delete Post</button>
-              </form>
-              </form>
-              </div>
-          </div>
-      </section>
-      <section>
-        <div id="postBox" class="jumbotron">
-          <div class="container">
-              <p id="post3" class="lead"><%= data[data.length-3].post %></p>
-              <footer id="name3" class="blockquote-footer"><%= data[data.length-3].name %></footer>
-            </br>
-              <form action="/comment" method="post">
-                <blockquote class="blockquote text-right">
-                  <div class="container">
-                    <textarea id="commentBox3" rows="5" type="text" class="form-control" placeholder="Your comment..." name="comment"></textarea>
-                  </div>
-                  <p class="mb-0" id="commentButton" onclick="commentForm()"><button type="submit" class="btn btn-secondary btn-sm">Add Comment</button></p>
-                </blockquote>
-              </br>
-                <button type="button" class="btn btn-danger" onclick="removePost3()">Delete Post</button>
-              </form>
-              </form>
-              </div>
-          </div>
-      </section>
-      <section>
-        <div id="postBox" class="jumbotron">
-          <div class="container">
-              <p id="post4" class="lead"><%= data[data.length-4].post %></p>
-              <footer id="name4" class="blockquote-footer"><%= data[data.length-4].name %></footer>
-            </br>
-              <form action="/comment" method="post">
-                <blockquote class="blockquote text-right">
-                  <div class="container">
-                    <textarea id="commentBox4" rows="5" type="text" class="form-control" placeholder="Your comment..." name="comment"></textarea>
-                  </div>
-                  <p class="mb-0" id="commentButton" onclick="commentForm()"><button type="submit" class="btn btn-secondary btn-sm">Add Comment</button></p>
-                </blockquote>
-              </br>
-                <button type="button" class="btn btn-danger" onclick="removePost4()">Delete Post</button>
-              </form>
-              </form>
-              </div>
-          </div>
-      </section>
-      <section>
-        <div id="postBox" class="jumbotron">
-          <div class="container">
-              <p id="post5" class="lead"><%= data[data.length-5].post %></p>
-              <footer id="name5" class="blockquote-footer"><%= data[data.length-5].name %></footer>
-            </br>
-              <form action="/comment" method="post">
-                <blockquote class="blockquote text-right">
-                  <div class="container">
-                    <textarea id="commentBox5" rows="5" type="text" class="form-control" placeholder="Your comment..." name="comment"></textarea>
-                  </div>
-                  <p class="mb-0" id="commentButton" onclick="commentForm()"><button type="submit" class="btn btn-secondary btn-sm">Add Comment</button></p>
-                </blockquote>
-              </br>
-                <button type="button" class="btn btn-danger" onclick="removePost5()">Delete Post</button>
-              </form>
-              </form>
-              </div>
-          </div>
-      </section>
+            <button type="button" class="btn btn-danger" onclick="removePost2()">Delete Post</button>
+          </form>
+  </form>
+  </div>
+  </div>
+  </section>
+  <section>
+    <div id="postBox" class="jumbotron">
+      <div class="container">
+        <p id="post3" class="lead">
+          <%= data[data.length-3].post %>
+        </p>
+        <footer id="name3" class="blockquote-footer">
+          <%= data[data.length-3].name %>
+        </footer>
+        </br>
+        <form action="/comment" method="post">
+          <blockquote class="blockquote text-right">
+            <div class="container">
+              <textarea id="commentBox3" rows="5" type="text" class="form-control" placeholder="Your comment..." name="comment"></textarea>
+            </div>
+            <p class="mb-0" id="commentButton" onclick="commentForm()"><button type="submit" class="btn btn-secondary btn-sm">Add Comment</button></p>
+          </blockquote>
+          </br>
+          <button type="button" class="btn btn-danger" onclick="removePost3()">Delete Post</button>
+        </form>
+        </form>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div id="postBox" class="jumbotron">
+      <div class="container">
+        <p id="post4" class="lead">
+          <%= data[data.length-4].post %>
+        </p>
+        <footer id="name4" class="blockquote-footer">
+          <%= data[data.length-4].name %>
+        </footer>
+        </br>
+        <form action="/comment" method="post">
+          <blockquote class="blockquote text-right">
+            <div class="container">
+              <textarea id="commentBox4" rows="5" type="text" class="form-control" placeholder="Your comment..." name="comment"></textarea>
+            </div>
+            <p class="mb-0" id="commentButton" onclick="commentForm()"><button type="submit" class="btn btn-secondary btn-sm">Add Comment</button></p>
+          </blockquote>
+          </br>
+            <button type="button" class="btn btn-danger" onclick="removePost4()">Delete Post</button>
+          </form>
+        </form>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div id="postBox" class="jumbotron">
+      <div class="container">
+        <p id="post5" class="lead">
+          <%= data[data.length-5].post %>
+        </p>
+        <footer id="name5" class="blockquote-footer">
+          <%= data[data.length-5].name %>
+        </footer>
+        </br>
+        <form action="/comment" method="post">
+          <blockquote class="blockquote text-right">
+            <div class="container">
+              <textarea id="commentBox5" rows="5" type="text" class="form-control" placeholder="Your comment..." name="comment"></textarea>
+            </div>
+            <p class="mb-0" id="commentButton" onclick="commentForm()"><button type="submit" class="btn btn-secondary btn-sm">Add Comment</button></p>
+          </blockquote>
+          </br>
+          <button type="button" class="btn btn-danger" onclick="removePost5()">Delete Post</button>
+        </form>
+        </form>
+      </div>
+    </div>
+  </section>
 
-    </form>
+  </form>
   </div>
 
-</br>
-</br>
+  </br>
+  </br>
 
 
 
@@ -205,7 +225,8 @@
     </div>
   </footer>
 
-  <script src="/javascripts/app.js" type="text/javascript"> </script>
+  <script src="/javascripts/app.js" type="text/javascript">
+  </script>
 
 </body>
 

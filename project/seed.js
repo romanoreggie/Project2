@@ -4,29 +4,29 @@ const db = require("./models");
 // var db = mongoose.connection;
 
 
-var Posts = [
-  {
-    name: "Reggie R.",
-    post: "Test, test",
-  },
-
-  {
-    name: "Scott",
-    post: "no idea wtf Im doing",
-  },
-  {
-    name: "No idea",
-    post: "Trying here...",
-  },
-  {
-    name: "Uhh",
-    post: "okay then..",
-  },
-  {
-    name: "Chris",
-    post: "What am I doing here?",
-  }
-];
+// var Posts = [
+//   {
+//     name: "Reggie R.",
+//     post: "Test, test",
+//   },
+//
+//   {
+//     name: "Scott",
+//     post: "no idea wtf Im doing",
+//   },
+//   {
+//     name: "No idea",
+//     post: "Trying here...",
+//   },
+//   {
+//     name: "Uhh",
+//     post: "okay then..",
+//   },
+//   {
+//     name: "Chris",
+//     post: "What am I doing here?",
+//   }
+// ];
   // Posts.forEach((post) => {
   //   var newPost = post.create(post);
   // });

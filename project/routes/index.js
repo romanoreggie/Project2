@@ -26,15 +26,29 @@ router.post('/post', function(req, res,) {
   });
 });
 
-router.delete('/post/:id', (req,res) => {
-  db.Post.findByIdAndRemove(req.params.id, (err) => {
-    if(err){
-      res.redirect('/');
-    }else{
+router.delete('/post/:id', function(req, res) {
+  db.Post.remove(req.body, function(err){
+    if(err) {
+      console.log('Error occurred in remove', err);
+    } else {
+      console.log("removed post");
       res.redirect('/');
     }
   });
 });
+//     if(err){
+//       res.redirect('/');
+//     }else{
+//       res.redirect('/');
+//     }
+//   });
+// });
+//
+// db.Post.remove({}, function(err, posts){
+//   if(err) {
+//     console.log('Error occurred in remove', err);
+//   } else {
+//     console.log('removed all posts');
 
 
 

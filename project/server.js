@@ -57,11 +57,6 @@ app.get('/', function(req, res) {
   });
 });
 
-app.get('/login', function(req, res) {
-  res.sendFile('views/login.ejs', {
-    root: __dirname
-});
-});
 
 
 // let viewData = () => {
